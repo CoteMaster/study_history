@@ -3,6 +3,7 @@
 
 9명 중에 7명의 합이 100인 경우를 출력
 """
+
 from itertools import combinations
 import sys
 read = sys.stdin.readline
