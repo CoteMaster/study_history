@@ -1,5 +1,6 @@
 import heapq
 
+
 def solution(stock, dates, supplies, k):
     answer = 0
     h = []
