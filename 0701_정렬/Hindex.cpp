@@ -11,7 +11,7 @@ int solution(vector<int> citations) {
 	
 	int cit_sz = citations.size();
 	int start = citations[0]; int end = citations[cit_sz - 1];
-  if (start >= citations.size()) return citations.size(); //얘 안넣으면 tc9번 실패
+  	if (start >= citations.size()) return citations.size(); //얘 안넣으면 tc9번 실패
   
 	for (int i = start;i <= end;i++) { //i값이 h
 		low = 0;
