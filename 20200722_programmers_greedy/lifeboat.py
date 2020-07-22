@@ -3,17 +3,10 @@ def solution(people, limit):
     start, end = 0, len(people)-1
     people.sort()
     while start <= end:
-        weight = 0
-        while start <= end:
-            if people[end]+weight <= limit:
-                weight += people[end]
-                end -= 1
-            else:
-                break
-            if start <= end and people[start]+weight <= limit:
-                weight += people[start]
-                start += 1
-            else:
-                break
+        if people[start]+people[end] <= limit:
+            start += 1
+            end -= 1
+        else:
+            end -= 1
         answer += 1
     return answer
