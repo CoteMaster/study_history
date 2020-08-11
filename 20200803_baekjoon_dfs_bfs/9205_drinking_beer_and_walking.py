@@ -19,17 +19,6 @@ import sys
 read = sys.stdin.readline
 
 
-def dfs(path, x, y):
-    global check
-    if abs(x-ex)+abs(y-ey) <= 1000:
-        check = True
-        return
-
-    for nx, ny in convenience_stores-set(path):
-        if abs(x-nx)+abs(y-ny) <= 1000 and not check:
-            dfs(path+[(nx, ny)], nx, ny)
-
-
 def bfs(x, y):
     q = [(x, y)]
     visit = {(x, y)}
@@ -46,7 +35,6 @@ def bfs(x, y):
                     visit.add((nx, ny))
         q = nxt_q
     return "sad"
-
 
 
 for _ in range(int(read())):
