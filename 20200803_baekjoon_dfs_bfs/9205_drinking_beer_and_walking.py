@@ -30,16 +30,30 @@ def dfs(path, x, y):
             dfs(path+[(nx, ny)], nx, ny)
 
 
+def bfs(x, y):
+    q = [(x, y)]
+    visit = {(x, y)}
+    while q:
+        nxt_q = []
+        for x, y in q:
+            
+            if abs(x-ex)+abs(y-ey) <= 1000:
+                return "happy"
+
+            for nx, ny in convenience_stores:
+                if abs(x-nx)+abs(y-ny) <= 1000 and (nx, ny) not in visit:
+                    nxt_q.append((nx, ny))
+                    visit.add((nx, ny))
+        q = nxt_q
+    return "sad"
+
+
+
 for _ in range(int(read())):
     n = int(read())
     sx, sy = map(int, read().split())
     convenience_stores = {tuple(map(int, read().split())) for _ in range(n)}
     ex, ey = map(int, read().split())
 
-    check = False
-    dfs([(sx, sy)], sx, sy)
-
-    if check:
-        print("happy")
-    else:
-        print("sad")
+    print(bfs(sx, sy))
+    
